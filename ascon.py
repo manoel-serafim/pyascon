@@ -452,7 +452,7 @@ def demo_print(data: list[tuple[str, bytes|None]]) -> None:
     maxlen = max([len(text) for (text, val) in data])
     for text, val in data:
         val_ = bytes_to_hex(val) if val is not None else None
-        print("{text}:{align} 0x{val} ({length} bytes)".format(text=text, align=((maxlen - len(text)) * " "), val=val_, length=len(val_) if val_ is not None else 0))
+        print("{text}:{align} 0x{val} ({length} bytes)".format(text=text, align=((maxlen - len(text)) * " "), val=val_, length=len(val) if val_ is not None else 0))
 
 def demo_aead(variant: AsconAeadVariant = "Ascon-AEAD128") -> None:
     assert variant in ("Ascon-AEAD128")
